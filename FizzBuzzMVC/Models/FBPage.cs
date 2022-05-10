@@ -2,7 +2,8 @@
 {
     public class FBPage
     {
-        public int MyProperty { get; set; }
+        public int FizzValue { get; set; }
+        public int BuzzValue { get; set; }        
 
         public bool IsFizzBuzz { get; set; }
         // return a css class parameter

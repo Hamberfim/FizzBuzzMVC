@@ -1,15 +1,11 @@
-﻿
+﻿@model FizzBuzzMVC.Models.FBPage
 
 
 <div class="container mt-4">
     <div class="row row-cols-1 row-cols-md-2">
         <div class="col border-end border-1 col-lg-4">
-            <h4 class="display-6 fw-bold mb-1 mt-3 mt-md-auto">
-                <class class="text-nowrap"><span class="jsicon">FIZZ</span>BUZZ</span> MVC:<br><span class="text-nowrap">
-                        A Coding
-                        Project
-                    </span>
-            </h4>
+            <h2 class="display-6 fw-bold mb-1 mt-3 mt-md-auto">
+                <span class="text-nowrap"><span class="jsicon">FIZZ</span>BUZZ</span> <span class="jsicon">MVC</span>:</h2><h4><span class="text-nowrap">A Coding Project</span></h4>
             <h5 class="lead">
                 A coding exercise. Using a loop and if statments, design a program that displays one to one-hundred with
                 multiples of '3' displaying <span class="fw-bold">"Fizz"</span>, multiples of '5' displaying <span class="fw-bold">"Buzz"</span> and mutiples of both
@@ -24,25 +20,21 @@
         <!--Start of right col -->
         <div class="col col-lg-8">
             <div class="mt-3">
-                <h5>Enter Values:</h5>
-                  
-                <!-- OLD FORM -->
-                <form class="row gy-2 gx-3">
-                    <div class="col">
-                        <input type="number" id="startValue" class="form-control" placeholder="Start Value"
-                               value=1 aria-label="Start Value">
+                <h5>Enter Values</h5>
+                <form class="row gy-2 gx-3" asp-controller="Home" asp-action="FBPage" method="post">
+                    <div class="col form-group pb-1">
+                        <lable asp-for="FizzValue">Start Value:</lable>
+                        <input type="number" asp-for="FizzValue" id="FizzValue" class="form-control" placeholder="Start Value" value="@Model.FizzValue" aria-label="Start Value" />
                     </div>
-                    <div class="col">
-                        <input type="number" id="endValue" class="form-control" placeholder="End Value"
-                               value=100 aria-label="End Value">
+                    <div class="col form-group pb-1">
+                        <lable asp-for="BuzzValue">End Value:</lable>
+                        <input type="number" asp-for="BuzzValue" id="BuzzValue" class="form-control" placeholder="End Value" value="@Model.BuzzValue" aria-label="End Value" />
                     </div>
-                    <div class="col-12 d-flex justify-content-md-end pt-1">
-                        <button type="button" id="btnSubmit" class="btn btn-dark btn-lg">Run Code</button>
+                    <div class="col-12 d-flex justify-content-md-end">
+                        <button type="submit" id="btnSubmit" class="btn btn-dark btn-lg">Run Code</button>
                     </div>
                     <br>
-                </form>
-                <!-- END OLD FORM -->
-                
+                 </form>
                 <h4 class="mt-4 border-bottom border-1 border-dark">Results:</h4>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
