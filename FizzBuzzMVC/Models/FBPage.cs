@@ -1,15 +1,17 @@
-﻿namespace FizzBuzzMVC.Models
+﻿using System.Collections.Generic;
+
+namespace FizzBuzzMVC.Models
 {
-    public class FBPage
+    public class FizzBuzz
     {
         public int FizzValue { get; set; }
-        public int BuzzValue { get; set; }        
+        public int BuzzValue { get; set; }
+        public List<string> Result { get; set; } = new();  // instantiate a new list
 
-        public bool IsFizzBuzz { get; set; }
-        // return a css class parameter
-        public string GetPaliMessClass()
+        // return a css class parameter to change text color
+        public string GetFizzBuzzClass()
         {
-            return IsFizzBuzz ? "text-success" : "text-danger";
+            return "FIZZBUZZ"; // IsFizzBuzz ? "text-success" : "text-danger";
         }
 
     }

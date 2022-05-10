@@ -26,17 +26,17 @@ namespace FizzBuzzMVC.Controllers
         [HttpGet]
         public IActionResult FBPage()
         {
-            FBPage model = new();
+            FizzBuzz model = new();
             return View(model);
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]  // assure that the post is happening from within the application page
         // overloaded method
-        public IActionResult FBPage(FBPage fbpage)
+        public IActionResult FBPage(FizzBuzz fizzbuzz)
         {
             // TODO: validate the model
-            return View(fbpage);
+            return View(fizzbuzz);
         }
 
         public IActionResult Privacy()
