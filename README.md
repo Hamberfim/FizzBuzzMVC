@@ -1,2 +1,4 @@
 ### FizzBuzz MVC
-C# 
+C# ASP.NET Core MVC
+
+![Alt](https://github.com/Hamberfim/FizzBuzzMVC/blob/main/screenshot.jpg "Screen Shot")
