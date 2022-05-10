@@ -23,11 +23,11 @@
                 <h5>Enter Values</h5>
                 <form class="row gy-2 gx-3" asp-controller="Home" asp-action="FBPage" method="post">
                     <div class="col form-group pb-1">
-                        <lable asp-for="FizzValue">Start Value:</lable>
+                        <lable asp-for="FizzValue">Fizz Value:</lable>
                         <input type="number" asp-for="FizzValue" id="FizzValue" class="form-control" placeholder="Start Value" value="@Model.FizzValue" aria-label="Start Value" />
                     </div>
                     <div class="col form-group pb-1">
-                        <lable asp-for="BuzzValue">End Value:</lable>
+                        <lable asp-for="BuzzValue">Buzz Value:</lable>
                         <input type="number" asp-for="BuzzValue" id="BuzzValue" class="form-control" placeholder="End Value" value="@Model.BuzzValue" aria-label="End Value" />
                     </div>
                     <div class="col-12 d-flex justify-content-md-end">

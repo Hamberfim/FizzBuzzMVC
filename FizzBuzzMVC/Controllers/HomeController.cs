@@ -27,6 +27,10 @@ namespace FizzBuzzMVC.Controllers
         public IActionResult FBPage()
         {
             FizzBuzz model = new();
+
+            model.FizzValue = 3;
+            model.BuzzValue = 5;
+
             return View(model);
         }
 
