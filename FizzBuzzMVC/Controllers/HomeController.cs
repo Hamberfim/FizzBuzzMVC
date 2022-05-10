@@ -39,7 +39,38 @@ namespace FizzBuzzMVC.Controllers
         // overloaded method
         public IActionResult FBPage(FizzBuzz fizzbuzz)
         {
-            // TODO: validate the model
+            // evaluate the imput for FizzBuzz
+            List<string> fbItems = new();
+
+            bool isFizz;
+            bool isBuzz;
+
+            for (int i = 1; i <= 100; i++)
+            {
+                isFizz = (i % fizzbuzz.FizzValue == 0);
+                isBuzz = (i % fizzbuzz.BuzzValue == 0);
+
+                if (isFizz == true && isBuzz == true)
+                {
+                    fbItems.Add($"{i} - FizzBuzz");
+                }
+                else if (isFizz == true)
+                {
+                    fbItems.Add($"{i} - Fizz");
+                }
+                else if (isBuzz == true)
+                {
+                    fbItems.Add($"{i} - Buzz");
+                }
+                else
+                {
+                    fbItems.Add(i.ToString());
+                }
+            }
+            
+            
+            fizzbuzz.Results = fbItems;
+
             return View(fizzbuzz);
         }
 
