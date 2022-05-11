@@ -24,7 +24,7 @@ namespace FizzBuzzMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult FBPage()
+        public IActionResult FbPage()
         {
             FizzBuzz model = new();
 
@@ -37,7 +37,7 @@ namespace FizzBuzzMVC.Controllers
         [HttpPost]
         [AutoValidateAntiforgeryToken]  // assure that the post is happening from within the application page
         // overloaded method
-        public IActionResult FBPage(FizzBuzz fizzbuzz)
+        public IActionResult FbPage(FizzBuzz fizzbuzz)
         {
             // evaluate the imput for FizzBuzz
             List<string> fbItems = new();
@@ -70,7 +70,6 @@ namespace FizzBuzzMVC.Controllers
             
             
             fizzbuzz.Results = fbItems;
-
             return View(fizzbuzz);
         }
 

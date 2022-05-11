@@ -1,0 +1,92 @@
+﻿@model FizzBuzzMVC.Models.FizzBuzz
+
+
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col border-end border-1 col-lg-4">
+            <h2 class="display-6 fw-bold mb-1 mt-3 mt-md-auto">
+                <span class="text-nowrap"><span class="jsicon">FIZZ</span>BUZZ</span> <span class="jsicon">MVC</span>:
+            </h2>
+            <h4>
+                <span class="text-nowrap">A Coding Project</span>
+            </h4>
+            <h5 class="lead">
+                A coding exercise. Using a loop and if statments, design a program that displays one to one-hundred with
+                multiples of '3' displaying <span class="fw-bold">"Fizz"</span>, multiples of '5' displaying <span class="fw-bold">"Buzz"</span> and mutiples of both
+                displaying <span class="fw-bold">"FizzBuzz"</span>.
+            </h5>
+            <h4 class="mt-3 border-bottom border-1 border-dark">Instructions</h4>
+            <p>
+                Press the "Run Code" button to see the results.
+            </p>
+        </div>
+        <!--Start of right col -->
+        <div class="col col-lg-8">
+            <div class="mt-3">
+                <h5>Enter Values</h5>
+                <form class="row gy-2 gx-3" asp-controller="Home" asp-action="FbPage" method="post">
+                    <div class="col form-group pb-1">
+                        <lable asp-for="FizzValue">Fizz Value:</lable>
+                        <input type="number" asp-for="FizzValue" id="FizzValue" class="form-control" placeholder="Start Value" value="@Model.FizzValue" aria-label="Start Value"/>
+                    </div>
+                    <div class="col form-group pb-1">
+                        <lable asp-for="BuzzValue">Buzz Value:</lable>
+                        <input type="number" asp-for="BuzzValue" id="BuzzValue" class="form-control" placeholder="End Value" value="@Model.BuzzValue" aria-label="End Value"/>
+                    </div>
+                    <div class="col-12 d-flex justify-content-md-end">
+                        <button type="submit" id="btnSubmit" class="btn btn-dark btn-lg">Run Code</button>
+                    </div>
+                    <br>
+                </form>
+                <h4 class="mt-4 border-bottom border-1 border-dark">Results:</h4>
+                <div class="table-responsive">
+                    <!-- Results/Table Go Here -->
+                    @if (@Model.Results.Count > 0)
+                    {
+                        <table class="table table-hover table-striped table-sm">
+
+                            @for (int i = 0; i < Model.Results.Count; i += 5)
+                            { 
+                                var textClass = "";
+                                @if (@Model.Results[i].Contains("FizzBuzz")) { textClass = "text-danger"; } else if (Model.Results[i].Contains("Fizz")) { textClass = "jsicon"; } else if (Model.Results[i].Contains("Buzz")) { textClass = "text-primary"; } else { textClass = "text-muted"; }
+                                <tr>
+                                    <td class="@textClass">
+                                        @Model.Results[i]
+                                    </td>
+                                    
+                                    @if (@Model.Results[i+1].Contains("FizzBuzz")) { textClass = "text-danger"; } else if (Model.Results[i+1].Contains("Fizz")) { textClass = "jsicon"; } else if (Model.Results[i+1].Contains("Buzz")) { textClass = "text-primary"; } else { textClass = "text-muted"; }
+                                    <td class="@textClass">
+                                        @Model.Results[i + 1]
+                                    </td>
+                                    
+                                    @if (@Model.Results[i+2].Contains("FizzBuzz")) { textClass = "text-danger"; } else if (Model.Results[i+2].Contains("Fizz")) { textClass = "jsicon"; } else if (Model.Results[i+2].Contains("Buzz")) { textClass = "text-primary"; } else { textClass = "text-muted"; }
+                                    <td class="@textClass">
+                                        @Model.Results[i + 2]
+                                    </td>
+
+                                    @if (@Model.Results[i+3].Contains("FizzBuzz")) { textClass = "text-danger"; } else if (Model.Results[i+3].Contains("Fizz")) { textClass = "jsicon"; } else if (Model.Results[i+3].Contains("Buzz")) { textClass = "text-primary"; } else { textClass = "text-muted"; }
+                                    <td class="@textClass">
+                                        @Model.Results[i + 3]
+                                    </td>
+                                    
+                                    @if (@Model.Results[i+4].Contains("FizzBuzz")) { textClass = "text-danger"; } else if (Model.Results[i+4].Contains("Fizz")) { textClass = "jsicon"; } else if (Model.Results[i+4].Contains("Buzz")) { textClass = "text-primary"; } else { textClass = "text-muted"; }
+                                    <td class="@textClass">
+                                        @Model.Results[i + 4]
+                                    </td>
+                                    
+                                    @*    <td class="@(Model.Results[i].Contains("z") ? "text-danger" : "text-muted")">@Model.Results[i]</td>
+                                    <td class="@(Model.Results[i+1].Contains("z") ? "text-danger" : "text-muted")">@Model.Results[i+1]</td>
+                                    <td class="@(Model.Results[i+2].Contains("z") ? "text-danger" : "text-muted")">@Model.Results[i+2]</td>
+                                    <td class="@(Model.Results[i+3].Contains("z") ? "text-danger" : "text-muted")">@Model.Results[i+3]</td>
+                                    <td class="@(Model.Results[i+4].Contains("z") ? "text-danger" : "text-muted")">@Model.Results[i+4]</td> *@
+                                </tr>
+                            }
+                        </table>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>

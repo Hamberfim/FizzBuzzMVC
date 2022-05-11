@@ -9,4 +9,5 @@ namespace FizzBuzzMVC.Models
         public List<string> Results { get; set; } = new();  // instantiate a new list
 
     }
+    
 }
