@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FizzBuzzMVC.Controllers
@@ -27,7 +28,6 @@ namespace FizzBuzzMVC.Controllers
         public IActionResult FbPage()
         {
             FizzBuzz model = new();
-
             model.FizzValue = 3;
             model.BuzzValue = 5;
 
@@ -44,6 +44,16 @@ namespace FizzBuzzMVC.Controllers
 
             bool isFizz;
             bool isBuzz;
+
+            if (fizzbuzz.FizzValue == null || fizzbuzz.FizzValue == 0)
+            {
+                fizzbuzz.FizzValue = 3;
+            }
+
+            if (fizzbuzz.BuzzValue == null || fizzbuzz.BuzzValue == 0)
+            {
+                fizzbuzz.BuzzValue = 5;
+            }
 
             for (int i = 1; i <= 100; i++)
             {
@@ -67,8 +77,8 @@ namespace FizzBuzzMVC.Controllers
                     fbItems.Add(i.ToString());
                 }
             }
-            
-            
+
+
             fizzbuzz.Results = fbItems;
             return View(fizzbuzz);
         }
